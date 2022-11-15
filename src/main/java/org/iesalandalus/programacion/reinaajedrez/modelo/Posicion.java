@@ -48,10 +48,11 @@ public class Posicion {
 		setColumna(columna);
 
 	}
+
 //constructor copia
 	public Posicion(Posicion posicion) {
-		fila=posicion.getFila();
-		columna=posicion.getColumna();
+		fila = posicion.getFila();
+		columna = posicion.getColumna();
 	}
 
 	@Override
@@ -69,6 +70,11 @@ public class Posicion {
 			return false;
 		Posicion other = (Posicion) obj;
 		return columna == other.columna && fila == other.fila;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("fila=%s, columna=%s", fila, columna);
 	}
 
 }
