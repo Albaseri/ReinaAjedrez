@@ -46,9 +46,10 @@ public class Posicion {
 		setColumna(columna);
 
 	}
-
+//constructor copia
 	public Posicion(Posicion posicion) {
-
+		fila=posicion.getFila();
+		columna=posicion.getColumna();
 	}
 
 }
