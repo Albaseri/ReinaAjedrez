@@ -29,6 +29,7 @@ public class Posicion {
 		return columna;
 	}
 
+//los métodos sets mandan las escepcionez
 	private void setColumna(char columna) {
 		if (columna < MIN_C) {
 			throw new IllegalArgumentException("La posición introducida es menor que el mínimo permitido");
@@ -37,6 +38,17 @@ public class Posicion {
 			throw new IllegalArgumentException("La posición introducida es mayor que el mínimo permitido");
 		}
 		this.columna = columna;
+	}
+
+//llamo a los métodos set de cada atributo
+	public Posicion(int fila, char columna) {
+		setFila(fila);
+		setColumna(columna);
+
+	}
+
+	public Posicion(Posicion posicion) {
+
 	}
 
 }
