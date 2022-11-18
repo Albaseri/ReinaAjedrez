@@ -1,7 +1,7 @@
 package org.iesalandalus.programacion.reinaajedrez.modelo;
 
 public enum Color {
-	BLANCO("blanco"), NEGRO("negro");
+	BLANCO("Blanco"), NEGRO("Negro");
 
 	private String cadenaAMostrar;
 
@@ -9,12 +9,8 @@ public enum Color {
 		this.cadenaAMostrar = cadenaAMostrar;
 	}
 
-	public String getCadenaAMostrar() {
-		return cadenaAMostrar;
-	}
-
 	@Override
 	public String toString() {
-		return String.format("color=%s, cadenaAMostrar");
+		return cadenaAMostrar;
 	}
 }

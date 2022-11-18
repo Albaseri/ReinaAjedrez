@@ -4,12 +4,25 @@ import java.util.Objects;
 
 public class Posicion {
 
-	private static int MIN_F = 1;
-	private static int MAX_F = 8;
-	private static char MIN_C = 'a';
-	private static char MAX_C = 'h';
 	private int fila;
 	private char columna;
+
+	// llamo a los métodos set de cada atributo
+	public Posicion(int fila, char columna) {
+		setFila(fila);
+		setColumna(columna);
+
+	}
+
+	// constructor copia
+	public Posicion(Posicion posicion) {
+		if (posicion == null) {
+			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
+		} else {
+			setFila(posicion.fila);
+			setColumna(posicion.columna);
+		}
+	}
 
 //getters and setters
 	public int getFila() {
@@ -17,13 +30,11 @@ public class Posicion {
 	}
 
 	private void setFila(int fila) {
-		if (fila < MIN_F) {
-			throw new IllegalArgumentException("La posición introducida es menor que el mínimo permitido");
-		} else if (fila > MAX_F) {
-
-			throw new IllegalArgumentException("La posición introducida es mayor que el mínimo permitido");
+		if (fila < 1 || fila > 8) {
+			throw new IllegalArgumentException("ERROR: Fila no válida.");
+		} else {
+			this.fila = fila;
 		}
-		this.fila = fila;
 
 	}
 
@@ -31,28 +42,13 @@ public class Posicion {
 		return columna;
 	}
 
-//los métodos sets mandan las escepcionez
+//los métodos sets mandan las excepciones
 	private void setColumna(char columna) {
-		if (columna < MIN_C) {
-			throw new IllegalArgumentException("La posición introducida es menor que el mínimo permitido");
-		} else if (columna > MAX_C) {
-
-			throw new IllegalArgumentException("La posición introducida es mayor que el mínimo permitido");
+		if (columna < 'a' || columna > 'h') {
+			throw new IllegalArgumentException("ERROR: Columna no válida.");
+		} else {
+			this.columna = columna;
 		}
-		this.columna = columna;
-	}
-
-//llamo a los métodos set de cada atributo
-	public Posicion(int fila, char columna) {
-		setFila(fila);
-		setColumna(columna);
-
-	}
-
-//constructor copia
-	public Posicion(Posicion posicion) {
-		fila = posicion.getFila();
-		columna = posicion.getColumna();
 	}
 
 	@Override
